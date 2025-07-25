@@ -28,10 +28,10 @@ extension AshtonXMLParserDelegate {
 
 
 /// Parses Ashton XML and returns parsed content and attributes
-final class AshtonXMLParser {
+public final class AshtonXMLParser {
 
-    typealias Hash = Int
-    typealias StyleAttributesCache = Cache<Hash, [NSAttributedString.Key: Any]>
+    public typealias Hash = Int
+    public typealias StyleAttributesCache = Cache<Hash, [NSAttributedString.Key: Any]>
     
     enum Tag {
         case p

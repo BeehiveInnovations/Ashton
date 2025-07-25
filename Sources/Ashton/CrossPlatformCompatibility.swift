@@ -8,10 +8,10 @@
 
 #if os(iOS) || (compiler(>=5.9) && os(visionOS))
 import UIKit
-typealias Font = UIFont
-typealias FontDescriptor = UIFontDescriptor
-typealias FontDescriptorSymbolicTraits = UIFontDescriptor.SymbolicTraits
-typealias Color = UIColor
+public typealias Font = UIFont
+public typealias FontDescriptor = UIFontDescriptor
+public typealias FontDescriptorSymbolicTraits = UIFontDescriptor.SymbolicTraits
+public typealias Color = UIColor
 
 extension UIFont {
     class var cpFamilyNames: [String] { return UIFont.familyNames }
@@ -37,10 +37,10 @@ extension FontDescriptor.FeatureKey {
 
 #elseif os(macOS)
 import AppKit
-typealias Font = NSFont
-typealias FontDescriptor = NSFontDescriptor
-typealias FontDescriptorSymbolicTraits = NSFontDescriptor.SymbolicTraits
-typealias Color = NSColor
+public typealias Font = NSFont
+public typealias FontDescriptor = NSFontDescriptor
+public typealias FontDescriptorSymbolicTraits = NSFontDescriptor.SymbolicTraits
+public typealias Color = NSColor
 
 extension NSFont {
     class var cpFamilyNames: [String] { return NSFontManager.shared.availableFontFamilies }

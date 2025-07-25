@@ -14,11 +14,13 @@ import Foundation
 #endif
 
 
-public final class AshtonHTMLWriter {
+public final class AshtonHTMLWriter: NSObject {
 
     // MARK: - Lifecycle
 
-    public init() {}
+    public override init() {
+        super.init()
+    }
 
     // MARK: - AshtonHTMLWriter
 

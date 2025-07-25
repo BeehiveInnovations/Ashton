@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		299652EB2E338FE200FB921F /* AshtonConcurrencyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 299652E92E338FE200FB921F /* AshtonConcurrencyTests.swift */; };
 		456C6695255DE10200BD736C /* AshtonBenchmarkTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 456C6694255DE10200BD736C /* AshtonBenchmarkTests.swift */; };
 		45A3D0372013DB6600280C48 /* FontBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45A3D0362013DB6600280C48 /* FontBuilder.swift */; };
 		45A7DFB1218F008A00D032AF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 45A7DFB0218F008A00D032AF /* README.md */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		299652E92E338FE200FB921F /* AshtonConcurrencyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AshtonConcurrencyTests.swift; sourceTree = "<group>"; };
 		456C6694255DE10200BD736C /* AshtonBenchmarkTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AshtonBenchmarkTests.swift; sourceTree = "<group>"; };
 		45A3D0362013DB6600280C48 /* FontBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FontBuilder.swift; path = ../Sources/Ashton/FontBuilder.swift; sourceTree = "<group>"; };
 		45A7DFB0218F008A00D032AF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -110,6 +112,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		299652EA2E338FE200FB921F /* AshtonTests */ = {
+			isa = PBXGroup;
+			children = (
+				299652E92E338FE200FB921F /* AshtonConcurrencyTests.swift */,
+			);
+			path = AshtonTests;
+			sourceTree = "<group>";
+		};
 		C87514A91F818A61002117FB /* TestFiles */ = {
 			isa = PBXGroup;
 			children = (
@@ -162,6 +172,7 @@
 			children = (
 				C87514A91F818A61002117FB /* TestFiles */,
 				C8A9CE701F6D1B0F0095C6AE /* AshtonBenchmark */,
+				299652EA2E338FE200FB921F /* AshtonTests */,
 				C8A9CE6B1F6D19960095C6AE /* Bridging.h */,
 				C8A9CE0E1F6D13700095C6AE /* AshtonTests.swift */,
 				45EA087F200E7B070073ADFD /* AshtonXMLParserTests.swift */,
@@ -339,6 +350,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				299652EB2E338FE200FB921F /* AshtonConcurrencyTests.swift in Sources */,
 				C8A9CE881F6D1B0F0095C6AE /* AshtonHTMLWriter.m in Sources */,
 				C8A9CE891F6D1B0F0095C6AE /* AshtonIntermediate.m in Sources */,
 				C8A9CE8D1F6D1B0F0095C6AE /* AshtonUtils.m in Sources */,

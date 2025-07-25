@@ -5,10 +5,17 @@ import Foundation
 public final class Cache<Key: Hashable, Value> {
 
     private var elements: [Key: Value]
+    private let queue = DispatchQueue(label: "com.ashton.cache-queue", attributes: .concurrent)
 
     // MARK: - Properties
 
-    var isEmpty: Bool { self.elements.isEmpty }
+    var isEmpty: Bool { 
+        var result = false
+        queue.sync {
+            result = self.elements.isEmpty
+        }
+        return result
+    }
 
     // MARK: - Lifecycle
 
@@ -19,7 +26,23 @@ public final class Cache<Key: Hashable, Value> {
     // MARK: - Cache
 
     subscript(key: Key) -> Value? {
-        get { self.elements[key] }
-        set { self.elements[key] = newValue }
+        get {
+            var value: Value?
+            queue.sync {
+                value = self.elements[key]
+            }
+            return value
+        }
+        set {
+            queue.sync(flags: .barrier) {
+                self.elements[key] = newValue
+            }
+        }
+    }
+    
+    func clear() {
+        queue.sync(flags: .barrier) {
+            self.elements.removeAll()
+        }
     }
 }

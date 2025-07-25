@@ -14,8 +14,39 @@ public final class Ashton: NSObject {
 
     public typealias HTML = String
 
-    internal static let reader = AshtonHTMLReader()
-    internal static let writer = AshtonHTMLWriter()
+    // Shared thread-safe caches
+    private static let sharedFontCache = FontBuilder.FontCache()
+    private static let sharedStyleCache = AshtonXMLParser.StyleAttributesCache()
+    
+    // Thread-local storage keys
+    private static let readerKey = "com.ashton.thread-local-reader"
+    private static let writerKey = "com.ashton.thread-local-writer"
+    
+    // Generic helper for thread-local storage
+    private static func threadLocal<T: NSObject>(key: String, create: () -> T) -> T {
+        let threadDict = Thread.current.threadDictionary
+        if let existingObject = threadDict[key] as? T {
+            return existingObject
+        } else {
+            let newObject = create()
+            threadDict[key] = newObject
+            return newObject
+        }
+    }
+    
+    // Thread-local reader instance
+    internal static var reader: AshtonHTMLReader {
+        threadLocal(key: readerKey) {
+            AshtonHTMLReader(fontBuilderCache: sharedFontCache, styleCache: sharedStyleCache)
+        }
+    }
+    
+    // Thread-local writer instance
+    internal static var writer: AshtonHTMLWriter {
+        threadLocal(key: writerKey) {
+            AshtonHTMLWriter()
+        }
+    }
 
     /// Encodes an NSAttributedString into a HTML representation
     ///
@@ -51,6 +82,7 @@ public final class Ashton: NSObject {
     /// Clears decoding caches (e.g. already parsed and converted html style attribute strings are cached)
     @objc
     public static func clearCaches() {
-        Ashton.reader.clearCaches()
+        sharedFontCache.clear()
+        sharedStyleCache.clear()
     }
 }

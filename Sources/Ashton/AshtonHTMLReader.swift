@@ -41,7 +41,7 @@ public final class AshtonHTMLReader: NSObject {
         self.init(fontBuilderCache: .init(), styleCache: .init())
     }
 
-    init(fontBuilderCache: FontBuilder.FontCache, styleCache: AshtonXMLParser.StyleAttributesCache) {
+    public init(fontBuilderCache: FontBuilder.FontCache, styleCache: AshtonXMLParser.StyleAttributesCache) {
         let fontBuilderCache = fontBuilderCache
         self.fontBuilderCache = fontBuilderCache
         self.xmlParser = .init(styleAttributesCache: styleCache, fontBuilderCache: fontBuilderCache)

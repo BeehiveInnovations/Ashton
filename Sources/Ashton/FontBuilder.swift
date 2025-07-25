@@ -12,9 +12,9 @@ import CoreText
 
 
 /// Creates a NS/UIFont
-final class FontBuilder {
+public final class FontBuilder {
 
-    typealias FontCache = Cache<String, Font>
+    public typealias FontCache = Cache<String, Font>
 
     // MARK: - Properties
 
